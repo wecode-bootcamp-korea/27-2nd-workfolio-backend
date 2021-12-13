@@ -418,3 +418,5 @@ fabric.properties
 
 ### django Environements ###
 my_settings.py
+
+csv/
