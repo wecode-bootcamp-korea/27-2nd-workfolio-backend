@@ -10,7 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
-from pathlib import Path
+from pathlib     import Path
 from my_settings import DATABASES, SECRET_KEY
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -107,11 +107,11 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Seoul'
 
 USE_I18N = True
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
@@ -149,3 +149,27 @@ CORS_ALLOW_HEADERS = (
 )
 
 APPEND_SLASH = False
+
+LOGGING = {
+    'disable_existing_loggers': False,
+    'version': 1,
+    'formatters': {
+        'verbose': {
+            'format': '{asctime} {levelname} {message}',
+            'style': '{'
+        },
+    },
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+            'level': 'DEBUG',
+        },
+    },
+    'loggers': {
+        'django.db.backends': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+            'propagate': False,
+        },
+    },
+}
