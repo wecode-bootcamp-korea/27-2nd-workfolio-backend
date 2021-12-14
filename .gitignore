@@ -419,4 +419,6 @@ fabric.properties
 ### django Environements ###
 my_settings.py
 
-csv/
+csv_file/
+
+csv_uploader.py
