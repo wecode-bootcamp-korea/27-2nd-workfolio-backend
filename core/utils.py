@@ -36,3 +36,5 @@ def authorization(func):
 
         except User.DoesNotExist:
             return JsonResponse({'MESSAGE': 'INVALID_TOKEN'}, status=401)
+
+    return wrapper
