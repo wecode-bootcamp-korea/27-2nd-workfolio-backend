@@ -58,3 +58,19 @@ class BuildingView(View):
 
         except Building.DoesNotExist:
             return JsonResponse({'MESSAGE': 'INVALID_BUILDING_ID'}, status=404)
+
+
+class PlaceListView(View):
+    def get(self, request):
+        cities    = Building.objects.filter(country='한국')
+        countries = Building.objects.exclude(country='한국')
+
+        cities    = [*set(building.city for building in cities)]
+        countries = [*set(building.country for building in countries)]
+
+        result = {
+            'cities'    : cities,
+            'countries' : countries
+        }
+
+        return JsonResponse({'MESSAGE': 'SUCCESS', 'RESULT': result}, status=200)
