@@ -2,8 +2,18 @@ from django.views        import View
 from django.http         import JsonResponse
 from django.utils        import timezone
 
-from offices.models      import Building
+from offices.models      import Building, Special
 from reservations.models import Reservation
+
+def special_list(request):
+    specials = Special.objects.all()
+
+    result = [
+        special.name
+        for special in specials
+    ]
+
+    return JsonResponse({'MESSAGE': 'SUCCESS', 'RESULT': result}, status=200)
 
 
 class BuildingView(View):
