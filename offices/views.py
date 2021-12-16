@@ -1,6 +1,7 @@
 from django.views        import View
 from django.http         import JsonResponse
 from django.utils        import timezone
+from django.db.models    import Prefetch
 
 from offices.models      import Building, Special
 from reservations.models import Reservation
@@ -22,7 +23,13 @@ class BuildingView(View):
             building = Building.objects.prefetch_related(
                 'buildingimage_set',
                 'specials',
-                'office_set'
+                'office_set',
+                Prefetch(
+                    'office_set__reservation_set',
+                    queryset = Reservation.objects.filter(
+                        check_out_date__gte = timezone.now().date()
+                    ),
+                )
             ).get(id=building_id)
 
             result = {
@@ -58,10 +65,17 @@ class BuildingView(View):
                         'price'        : office.price,
                         'capacity'     : office.capacity,
                         'capacity_max' : office.capacity_max,
-                        'image'        : office.image
+                        'image'        : office.image,
+                        'reservations' : [
+                            [
+                                reservation.check_in_date,
+                                reservation.check_out_date
+                            ]
+                            for reservation in office.reservation_set.all()
+                        ]
                     }
                     for office in building.office_set.all()
-                ]
+                ],
             }
 
             return JsonResponse({'MESSAGE': 'SUCCESS', 'RESULT': result}, status=200)
