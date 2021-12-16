@@ -1,6 +1,6 @@
 FROM ubuntu:20.04
 
-WORKDIR /usr/etc/app
+WORKDIR /usr/src/app
 
 COPY requirements/requirements.txt ./
 
@@ -15,4 +15,4 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
-CMD ["gunicorn", "--bind", "0.0.0.0:80", "workfolio.wsgi:application"]
+CMD ["gunicorn", "--bind", "0.0.0.0:80", "--timeout", "600", "workfolio.wsgi:application"]
