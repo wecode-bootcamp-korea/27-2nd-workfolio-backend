@@ -59,6 +59,16 @@ class ReservationViewTest(TestCase):
             reservation_number = 'a'
         )
 
+        Reservation.objects.create(
+            id                 = 2,
+            office             = office,
+            user               = user,
+            check_in_date      = self.date - timezone.timedelta(days=9),
+            check_out_date     = self.date - timezone.timedelta(days=3),
+            headcount          = 10,
+            reservation_number = 'b'
+        )
+
     def tearDown(self):
         Reservation.objects.all().delete()
         User.objects.all().delete()
@@ -74,6 +84,19 @@ class ReservationViewTest(TestCase):
             'MESSAGE' : 'SUCCESS',
             'RESULT'  : [
                 {
+                    'id'                 : 2,
+                    'reservation_number' : 'b',
+                    'building_id'        : 1,
+                    'building_name'      : 'a',
+                    'office_name'        : 'a',
+                    'office_image'       : 'a',
+                    'check_in_date'      : str(self.date-timezone.timedelta(days=9)),
+                    'check_out_date'     : str(self.date-timezone.timedelta(days=3)),
+                    'headcount'          : 10,
+                    'total_price'        : '7000.00',
+                    'is_deleted'         : False
+                },
+                {
                     'id'                 : 1,
                     'reservation_number' : 'a',
                     'building_id'        : 1,
@@ -86,5 +109,6 @@ class ReservationViewTest(TestCase):
                     'total_price'        : '2000.00',
                     'is_deleted'         : False
                 }
+
             ]
         })

@@ -10,10 +10,10 @@ class ReservationView(View):
     @authorization
     def get(self, request):
         user = request.user
-        print(user)
+
         reservations = Reservation.objects.select_related(
             'office', 'office__building'
-        ).filter(user=user)
+        ).filter(user=user).order_by('check_in_date')
 
         result = [
             {
