@@ -20,10 +20,14 @@
 Django, Python, MySQL, jwt, bcrypt, AWS(EC2, RDS, ALB), Docker, Kakao API, Git, Slack, Trello
 
 ### ERD
-![](https://media.vlpt.us/images/eslerkang/post/999c49fc-107d-48b6-a87d-8713bdb4aa3e/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-12-24%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%204.02.24.png)
+<img width="650" alt="스크린샷 2021-12-24 오후 4 02 24" src="https://user-images.githubusercontent.com/31269150/147379167-3f0509be-e76d-45e6-bef4-ce528d4f01c2.png">
 
 ### AWS Architecture
-![](https://media.vlpt.us/images/eslerkang/post/6251ec1c-3e0d-4dea-b0b0-783392059368/django%20(1).png)
+![django (1)](https://user-images.githubusercontent.com/31269150/147379164-21210050-ee18-4acc-95c2-b8587741c637.png)
+
+### API Reference
+#### PostMan을 통해 관리했습니다.
+![스크린샷 2021-12-25 15 43 13](https://user-images.githubusercontent.com/31269150/147379159-f6ecc309-950a-409d-b3a0-77e22767fcb6.png)
 
 ### Docker
 0. Install Docker on the server/computer you want to run this project
