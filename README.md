@@ -9,7 +9,7 @@
 [Workfolio - Frontend Repo](https://github.com/wecode-bootcamp-korea/27-2nd-workfolio-frontend)
 
 ### Back-end
-😎 강태준 - 인가 데코레이터, 빌딩/오피스 조회 GET 메소드 구현, Filtering/Ordering 로직 구현, 예약 조회 GET 메소드 구현, AWS/Docker를 통한 서버 구성 및 배포
+😎 강태준[PM] - 인가 데코레이터, 빌딩/오피스 조회 GET 메소드 구현, Filtering/Ordering 로직 구현, 예약 조회 GET 메소드 구현, AWS/Docker를 통한 서버 구성 및 배포
 <br/>
 🤣 박재용 - KAKAO REST API를 통한 소셜 로그인 구현, 예약 신청 POST 메소드 구현, 예약 관련 예외 처리 로직 구현
 
